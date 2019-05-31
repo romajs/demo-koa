@@ -5,19 +5,22 @@ const helmet = require('koa-helmet')
 const Koa = require('koa')
 const Router = require('koa-router')
 
+const routes = require('./routes')
+
 const app = new Koa()
-const router = new Router()
 
 app.use(body())
 app.use(compress())
 app.use(cors())
 app.use(helmet())
 
-router.get('/health', (ctx) => {
-  ctx.body = { status: 'UP' }
+const router = new Router()
+
+Object.entries(routes()).forEach(([version, subRouter]) => {
+  console.log(version, subRouter)
+  router.use(`/api/${version}`, subRouter.routes())
 })
 
 app.use(router.routes())
-app.use(router.allowedMethods())
 
 module.exports = app
