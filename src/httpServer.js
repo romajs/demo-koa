@@ -1,23 +1,23 @@
-const app = require('./app')
-const config = require('./config')
+const app = require('./app');
+const config = require('./config');
 
-let httpServer = null
+let httpServer = null;
 
 const start = () => new Promise((resolve, reject) => {
   try {
-    const [port, host] = [config.get('http.port'), config.get('http.host')]
+    const [port, host] = [config.get('http.port'), config.get('http.host')];
     httpServer = app.listen(port, host, () => {
-      console.log('Http server started on:', httpServer.address())
-      resolve(httpServer)
-    })
+      console.log('Http server started on:', httpServer.address());
+      resolve(httpServer);
+    });
   } catch (err) {
-    reject(err)
+    reject(err);
   }
-})
+});
 
-const stop = () => httpServer.close()
+const stop = () => httpServer.close();
 
 module.exports = {
   start,
-  stop
-}
+  stop,
+};

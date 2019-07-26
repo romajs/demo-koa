@@ -1,5 +1,5 @@
-const server = require('./httpServer')
+const server = require('./httpServer');
 
 Promise.all([server.start()]).then(() => {
-  return 'Application started successfully.'
-})
+  return 'Application started successfully.';
+});
