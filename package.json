@@ -2,7 +2,8 @@
   "name": "demo-koa",
   "version": "1.0.0",
   "description": "Demo Koa",
-  "main": "src/index.js",
+  "bin": "src/index.js",
+  "private": true,
   "scripts": {
     "lint:watch": "npm run lint -- --watch",
     "lint": "esw src --color --fix",
@@ -27,6 +28,7 @@
     "convict": "^5.0.0",
     "cross-env": "^5.2.0",
     "dotenv": "^8.0.0",
+    "fastest-validator": "^0.6.17",
     "koa": "^2.7.0",
     "koa-accesslog": "0.0.2",
     "koa-body": "^4.1.0",

@@ -12,6 +12,6 @@ app.use(body());
 app.use(compress());
 app.use(cors());
 app.use(helmet());
-app.use(loadRouterTree('./api', '/api'));
+app.use(loadRouterTree('./api', '/api', [/.*router\.js/i]));
 
 module.exports = app;
