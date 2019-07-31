@@ -1,15 +1,24 @@
-const FastestValidator = require('fastest-validator');
+const Ajv = require('ajv');
+const jsonSchemaDraft06 = require('ajv/lib/refs/json-schema-draft-06.json');
 
-const validator = new FastestValidator();
+const ajv = new Ajv();
+
+ajv.addMetaSchema(jsonSchemaDraft06);
+
+const mapErrorsToBodyResponse = errors => errors.map(error => ({
+  at: error.dataPath,
+  message: error.message,
+  type: error.keyword,
+}));
 
 const validation = schema => {
-  const validate = validator.compile(schema);
+  const validate = ajv.compile(schema);
   return (ctx, next) => {
     const { body } = ctx.request;
-    const validationResult = validate(body);
-    if (validationResult && Array.isArray(validationResult)) {
+    const valid = validate(body);
+    if (!valid) {
       ctx.status = 400;
-      ctx.body = validationResult;
+      ctx.body = mapErrorsToBodyResponse(validate.errors);
       return;
     }
     return next();

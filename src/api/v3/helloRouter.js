@@ -1,7 +1,8 @@
+
 const Router = require('koa-router');
 
-const validation = require('../../middlewares/validation');
 const helloSchema = require('./helloSchema');
+const validation = require('../../middlewares/validation');
 
 const router = new Router({ prefix: '/hello' });
 

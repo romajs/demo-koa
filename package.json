@@ -25,10 +25,10 @@
   },
   "homepage": "https://github.com/romajs/demo-koa#readme",
   "dependencies": {
+    "ajv": "^6.10.2",
     "convict": "^5.0.0",
     "cross-env": "^5.2.0",
     "dotenv": "^8.0.0",
-    "fastest-validator": "^0.6.17",
     "koa": "^2.7.0",
     "koa-accesslog": "0.0.2",
     "koa-body": "^4.1.0",

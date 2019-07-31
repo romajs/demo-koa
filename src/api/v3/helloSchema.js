@@ -1,5 +1,9 @@
 const helloSchema = {
-  name: { type: 'string' },
+  type: 'object',
+  required: ['name'],
+  properties: {
+    name: { type: 'string' },
+  },
 };
 
 module.exports = helloSchema;
