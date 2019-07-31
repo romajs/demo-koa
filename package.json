@@ -5,6 +5,7 @@
   "bin": "src/index.js",
   "private": true,
   "scripts": {
+    "build": "pkg . --out-path=build",
     "lint:watch": "npm run lint -- --watch",
     "lint": "esw src --color --fix",
     "start:dev": "cross-env NODE_ENV=development nodemon src/index",
@@ -27,7 +28,6 @@
   "dependencies": {
     "ajv": "^6.10.2",
     "convict": "^5.0.0",
-    "cross-env": "^5.2.0",
     "dotenv": "^8.0.0",
     "koa": "^2.7.0",
     "koa-accesslog": "0.0.2",
@@ -40,6 +40,7 @@
     "slash": "^3.0.0"
   },
   "devDependencies": {
+    "cross-env": "^5.2.0",
     "eslint": "^6.1.0",
     "eslint-config-standard": "^13.0.1",
     "eslint-plugin-import": "^2.18.2",
@@ -47,6 +48,10 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-watch": "^5.1.2",
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "pkg": "^4.4.0"
+  },
+  "pkg": {
+    "scripts": "src/api/*"
   }
 }
