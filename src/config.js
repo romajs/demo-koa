@@ -1,8 +1,7 @@
-console.debug(`Loading configuration, process.env.NODE_ENV=${process.env.NODE_ENV}`);
-
 const convict = require('convict');
 const dotenv = require('dotenv');
 
+console.debug(`Loading configuration, process.env.NODE_ENV=${process.env.NODE_ENV}`);
 dotenv.config();
 
 const config = convict({
