@@ -5,7 +5,7 @@
   "bin": "src/index.js",
   "private": true,
   "scripts": {
-    "build": "gulp",
+    "build": "gulp build",
     "lint:watch": "npm run lint -- --watch",
     "lint": "esw src --color --fix",
     "start:dev": "cross-env NODE_ENV=development nodemon src/index",
@@ -48,8 +48,9 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-watch": "^5.1.2",
+    "gpg": "^0.6.0",
+    "gulp": "^4.0.2",
     "nodemon": "^1.19.1",
-    "pkg": "^4.4.0",
-    "gulp": "^4.0.2"
+    "pkg": "^4.4.0"
   }
 }
